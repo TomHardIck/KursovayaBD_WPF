@@ -12,7 +12,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="59,77,0,0" TextWrapping="Wrap" FontSize="17" FontFamily="Book Antiqua" Foreground="White" Text="Введите логин" VerticalAlignment="Top" Height="30" Width="174"/>
         <TextBox x:Name="passwordInput" HorizontalAlignment="Left" Margin="59,229,0,0" TextWrapping="Wrap" Text="" FontSize="23" FontFamily="Book Antiqua" VerticalAlignment="Top" Width="262" Height="48"/>
         <TextBlock HorizontalAlignment="Left" Margin="59,194,0,0" TextWrapping="Wrap" FontSize="17" FontFamily="Book Antiqua" Foreground="White" Text="Введите пароль" VerticalAlignment="Top" Height="30" Width="174"/>
-        <Button Content="Войти в систему" Background="White" FontSize="23" FontFamily="Book Antiqua" HorizontalAlignment="Center" Margin="0,335,0,0" VerticalAlignment="Top" Height="55" Width="277">
+        <Button x:Name="authButton" Content="Войти в систему" Background="White" FontSize="23" FontFamily="Book Antiqua" HorizontalAlignment="Center" Margin="0,335,0,0" VerticalAlignment="Top" Height="55" Width="277" Click="authButton_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
