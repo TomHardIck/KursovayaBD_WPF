@@ -24,6 +24,7 @@ namespace DesktopApp
     public partial class MainWindow : Window
     {
 
+        public static int loggedId;
         private static UserTableAdapter users = new UserTableAdapter();
         private static UserRoleTableAdapter roles = new UserRoleTableAdapter();
         private static HashAlgorithm hash = new HashAlgorithm();
@@ -47,7 +48,10 @@ namespace DesktopApp
             {
                 if(user.User_Login.ToString() == loginInput.Text && hash.AreEqual(passwordInput.Text, user.User_Password, user.Salt) && user.User_Role_ID == roleId)
                 {
+                    loggedId = user.ID_User;
                     MessageBox.Show("Успешная авторизация!");
+                    DataWindow dataWindow = new DataWindow();
+                    dataWindow.Show();
                 }
             }
         }

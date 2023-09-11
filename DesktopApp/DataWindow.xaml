@@ -7,14 +7,31 @@
         mc:Ignorable="d"
         Title="DataWindow" Height="450" Width="800" Background="Black">
     <Grid>
-        <TabControl>
-            <TabItem Header="Пользователи системы">
+        <TabControl x:Name="tabMain">
+            <TabItem x:Name="usersTab" Header="Пользователи системы">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="usersGrid" Margin="0,0,0,180" SelectionChanged="usersGrid_SelectionChanged"/>
+                    <TextBox x:Name="loginBox" HorizontalAlignment="Left" Margin="27,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" Height="28"/>
+                    <TextBox x:Name="hashedPasswordBox" HorizontalAlignment="Left" Margin="271,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" Height="28"/>
+                    <TextBox x:Name="fNameBox" HorizontalAlignment="Left" Margin="511,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" Height="28"/>
+                    <TextBox x:Name="lNameBox" HorizontalAlignment="Left" Margin="27,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" Height="28"/>
+                    <ComboBox x:Name="roleBox" HorizontalAlignment="Left" Margin="271,297,0,0"  VerticalAlignment="Top" Width="199" Height="28"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="27,234,0,0" TextWrapping="Wrap" Text="Логин" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="271,234,0,0" TextWrapping="Wrap" Text="Хэшированный пароль" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="511,234,0,0" TextWrapping="Wrap" Text="Имя" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="27,281,0,0" TextWrapping="Wrap" Text="Фамилия" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="271,281,0,0" TextWrapping="Wrap" Text="Роль" VerticalAlignment="Top"/>
+                    <TextBox x:Name="saltBox" IsReadOnly="True" HorizontalAlignment="Left" Margin="511,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" Height="28"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="511,281,0,0" TextWrapping="Wrap" Text="Соль" VerticalAlignment="Top"/>
+                    <Button x:Name="addUser" Content="Добавить" HorizontalAlignment="Left" Margin="27,360,0,0" VerticalAlignment="Top" Height="36" Width="199" Click="addUser_Click"/>
+                    <Button x:Name="editUser" Content="Изменить" HorizontalAlignment="Left" Margin="271,360,0,0" VerticalAlignment="Top" Height="36" Width="199" Click="editUser_Click"/>
+                    <Button x:Name="deleteUser" Content="Удалить" HorizontalAlignment="Left" Margin="511,360,0,0" VerticalAlignment="Top" Height="36" Width="199" Click="deleteUser_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="positionsTab" Header="Товары">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
-            <TabItem Header="Товары">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-            <TabItem Header="Заказы">
+            <TabItem x:Name="ordersTab" Header="Заказы">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>

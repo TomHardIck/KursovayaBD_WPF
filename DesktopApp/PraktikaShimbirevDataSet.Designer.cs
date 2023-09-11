@@ -3280,7 +3280,7 @@ namespace DesktopApp {
                 this.columnUser_LName.MaxLength = 50;
                 this.columnUser_Role_ID.AllowDBNull = false;
                 this.columnSalt.AllowDBNull = false;
-                this.columnSalt.MaxLength = 8;
+                this.columnSalt.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
