@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesktopApp"
         mc:Ignorable="d"
-        Title="DataWindow" Height="450" Width="800" Background="Black">
+        Title="Окно администора" Height="450" Width="800" Background="Black">
     <Grid>
         <TabControl x:Name="tabMain">
             <TabItem x:Name="usersTab" Header="Пользователи системы">
@@ -28,11 +28,10 @@
                     <Button x:Name="deleteUser" Content="Удалить" HorizontalAlignment="Left" Margin="511,360,0,0" VerticalAlignment="Top" Height="36" Width="199" Click="deleteUser_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="positionsTab" Header="Товары">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-            <TabItem x:Name="ordersTab" Header="Заказы">
-                <Grid Background="#FFE5E5E5"/>
+            <TabItem x:Name="logsTab" Header="Логи системы">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="logsGrid" Margin="0,0,0,180"/>
+                </Grid>
             </TabItem>
         </TabControl>
 

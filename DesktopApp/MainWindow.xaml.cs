@@ -35,23 +35,31 @@ namespace DesktopApp
 
         private void authButton_Click(object sender, RoutedEventArgs e)
         {
-            int roleId = 0;
-            foreach(var role in roles.GetData())
-            {
-                if(role.User_Role_Name == "Администратор")
-                {
-                    roleId = role.ID_User_Role;
-                    break;
-                }
-            }
             foreach(var user in users.GetData())
             {
-                if(user.User_Login.ToString() == loginInput.Text && hash.AreEqual(passwordInput.Text, user.User_Password, user.Salt) && user.User_Role_ID == roleId)
+                if(user.User_Login.ToString() == loginInput.Text && hash.AreEqual(passwordInput.Text, user.User_Password, user.Salt))
                 {
                     loggedId = user.ID_User;
                     MessageBox.Show("Успешная авторизация!");
-                    DataWindow dataWindow = new DataWindow();
-                    dataWindow.Show();
+                    foreach(var role in roles.GetData())
+                    {
+                        if(user.User_Role_ID == role.ID_User_Role)
+                        {
+                            switch (role.User_Role_Name)
+                            {
+                                case "Администратор":
+                                    DataWindow dataWindow = new DataWindow();
+                                    dataWindow.Show();
+                                    break;
+                                case "Пользователь":
+                                    break;
+                                case "Менеджер по продажам":
+                                    ManagerWindow managerWindow = new ManagerWindow();
+                                    managerWindow.Show();
+                                    break;
+                            }
+                        }
+                    }
                 }
             }
         }

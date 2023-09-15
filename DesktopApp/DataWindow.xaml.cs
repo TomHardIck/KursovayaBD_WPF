@@ -35,6 +35,7 @@ namespace DesktopApp
         {
             usersGrid.ItemsSource = users.GetData();
             roleBox.ItemsSource = roles.GetData().AsEnumerable().Select(x => x[1]).ToList();
+            logsGrid.ItemsSource = actHistory.GetData();
         }
 
         private void usersGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
