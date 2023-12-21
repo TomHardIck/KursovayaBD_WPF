@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesktopApp"
         mc:Ignorable="d"
-        Title="Окно менеджера по продажам" Height="450" Width="800">
+        Title="Окно менеджера по продажам" Height="450" Width="800" Background="Black">
     <Grid>
-        
+        <TabControl Background="Black" BorderBrush="Black">
+            <TabItem Header="Список заказов">
+                <Grid Background="Black">
+                    <DataGrid x:Name="ordersOfUserGrid" Margin="0,0,0,188"/>
+                    <ComboBox x:Name="usersChoosingForOrders" SelectionChanged="usersChoosingForOrders_SelectionChanged" HorizontalAlignment="Left" Margin="10,269,0,0" VerticalAlignment="Top" Width="246" Height="39"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Добавить товар в заказ">
+                <Grid Background="Black">
+                    <DataGrid x:Name="prodInOrdersGrid" Margin="0,0,0,174"/>
+                    <ComboBox x:Name="ordersCombo" HorizontalAlignment="Left" Margin="32,268,0,0" VerticalAlignment="Top" Width="204" Height="27"/>
+                    <ComboBox x:Name="productCombo" HorizontalAlignment="Left" Margin="557,268,0,0" VerticalAlignment="Top" Width="204" Height="27"/>
+                    <Button x:Name="addProductToOrder" Content="Добавить товар в заказ" HorizontalAlignment="Center" Margin="0,364,0,0" VerticalAlignment="Top" Height="32" Width="210" Click="addProductToOrder_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Изменить статус заказа">
+                <Grid Background="Black">
+                    <DataGrid x:Name="ordersGrid" Margin="0,0,0,187"/>
+                    <ComboBox x:Name="statusCombo" HorizontalAlignment="Left" Margin="10,262,0,0" VerticalAlignment="Top" Width="269" Height="35"/>
+                    <Button x:Name="editStatus" Content="Принять изменения" HorizontalAlignment="Center" Margin="0,340,0,0" VerticalAlignment="Top" Height="42" Width="234" Click="editStatus_Click"/>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+
     </Grid>
 </Window>

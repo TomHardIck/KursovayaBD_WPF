@@ -37,7 +37,7 @@ namespace DesktopApp
         {
             foreach(var user in users.GetData())
             {
-                if(user.User_Login.ToString() == loginInput.Text && hash.AreEqual(passwordInput.Text, user.User_Password, user.Salt))
+                if(user.User_Login.ToString() == loginInput.Text && hash.AreEqual(passwordInput.Password, user.User_Password, user.Salt))
                 {
                     loggedId = user.ID_User;
                     MessageBox.Show("Успешная авторизация!");

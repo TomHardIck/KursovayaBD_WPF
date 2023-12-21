@@ -1,0 +1,36 @@
+﻿<Window x:Class="DesktopApp.CustomerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DesktopApp"
+        mc:Ignorable="d"
+        Title="Окно покупки товара" Height="450" Width="800" Background="Black">
+		<Grid>
+				<TabControl>
+						<TabItem Header="Товары">
+								<Grid Background="#FFE5E5E5">
+										<DataGrid x:Name="productsGrid" Margin="0,0,0,121" IsReadOnly="True"/>
+										<Button x:Name="addToCart" Content="Добавить в корзину" HorizontalAlignment="Center" Margin="0,364,0,0" VerticalAlignment="Top" Height="32" Width="230" Click="addToCart_Click"/>
+										<ComboBox x:Name="categoriesFilter" HorizontalAlignment="Left" Margin="10,307,0,0" VerticalAlignment="Top" Width="213" Height="29" SelectionChanged="categoriesFilter_SelectionChanged"/>
+								</Grid>
+						</TabItem>
+						<TabItem Header="Корзина">
+								<Grid Background="#FFE5E5E5">
+										<ListBox x:Name="cartData" Margin="0,0,397,0"/>
+										<Button x:Name="createOrder" Content="Оформить заказ" HorizontalAlignment="Left" Margin="587,338,0,0" VerticalAlignment="Top" Height="52" Width="174" Click="createOrder_Click"/>
+										<Button x:Name="deletePos" Content="Удалить из корзины" HorizontalAlignment="Left" Margin="580,0,0,0" VerticalAlignment="Center" Height="52" Width="204" Click="deletePos_Click"/>
+										<TextBlock HorizontalAlignment="Left" Margin="402,358,0,0" TextWrapping="Wrap" Text="Общая сумма: " VerticalAlignment="Top" Height="23" Width="82"/>
+										<TextBlock x:Name="itogSum" HorizontalAlignment="Left" Margin="489,357,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="93"/>
+								</Grid>
+						</TabItem>
+						<TabItem Header="Мои заказы">
+								<Grid Background="#FFE5E5E5">
+										<DataGrid x:Name="myOrdersGrid"/>
+
+								</Grid>
+						</TabItem>
+				</TabControl>
+
+		</Grid>
+</Window>

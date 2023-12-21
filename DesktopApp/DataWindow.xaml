@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesktopApp"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         Title="Окно администора" Height="450" Width="800" Background="Black">
     <Grid>
@@ -31,6 +32,26 @@
             <TabItem x:Name="logsTab" Header="Логи системы">
                 <Grid Background="#FFE5E5E5">
                     <DataGrid x:Name="logsGrid" Margin="0,0,0,180"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="dbWorkTab" Header="Работа с базой данных">
+                <Grid Background="#FFE5E5E5">
+                    <ComboBox x:Name="tableCombo" HorizontalAlignment="Left" Margin="40,41,0,0" VerticalAlignment="Top" Width="237" Height="31"/>
+                    <Button x:Name="sqlButtonExport" Content="SQL Export" HorizontalAlignment="Left" Margin="40,96,0,0" VerticalAlignment="Top" Height="33" Width="129" Click="sqlButtonExport_Click"/>
+                    <Button x:Name="csvButtonExport" Content="CSV Export" HorizontalAlignment="Left" Margin="207,96,0,0" VerticalAlignment="Top" Height="33" Width="129" Click="csvButtonExport_Click"/>
+                    <Button x:Name="backupButton" Content="Backup DATABASE" HorizontalAlignment="Left" Margin="494,30,0,0" VerticalAlignment="Top" Height="44" Width="212" Click="backupButton_Click"/>
+                    <lvc:CartesianChart Margin="0,180,359,60">
+                        <lvc:CartesianChart x:Name="chart" LegendLocation="Right" >
+                            <lvc:CartesianChart.AxisY>
+                                <lvc:Axis Title="Кол-во заказов"></lvc:Axis>
+                            </lvc:CartesianChart.AxisY>
+                            <lvc:CartesianChart.AxisX>
+                                <lvc:Axis Title="Товар" x:Name="xAxis" ></lvc:Axis>
+                            </lvc:CartesianChart.AxisX>
+                        </lvc:CartesianChart>
+                    </lvc:CartesianChart>
+                    <ComboBox x:Name="productCombo" HorizontalAlignment="Left" Margin="588,203,0,0" VerticalAlignment="Top" Width="175" Height="32"/>
+                    <Button x:Name="addToDia" Content="Добавить на диаграмму" HorizontalAlignment="Left" Margin="588,263,0,0" VerticalAlignment="Top" Height="33" Width="175" Click="addToDia_Click"/>
                 </Grid>
             </TabItem>
         </TabControl>

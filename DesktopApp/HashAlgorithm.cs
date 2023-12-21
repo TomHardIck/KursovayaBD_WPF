@@ -17,17 +17,15 @@ namespace DesktopApp
             return Convert.ToBase64String(buff);
         }
 
-        public string GenerateHash(string input, string salt)
+        public string EncryptPassword(string value_to_encrypt, string salt_value)
         {
-            byte[] bytes = Encoding.UTF8.GetBytes(input + salt);
             SHA256Managed sHA256Managed = new SHA256Managed();
-            byte[] hash = sHA256Managed.ComputeHash(bytes);
-            return Convert.ToBase64String(hash);
+            return Convert.ToBase64String(sHA256Managed.ComputeHash(Encoding.UTF8.GetBytes(value_to_encrypt + salt_value)));
         }
 
         public bool AreEqual(string text, string hash, string salt)
         {
-            string newPin = GenerateHash(text, salt);
+            string newPin = EncryptPassword(text, salt);
             return newPin.Equals(hash);
         }
     }
